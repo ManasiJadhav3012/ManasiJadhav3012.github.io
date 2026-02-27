@@ -887,7 +887,7 @@ p,
     animation: spinIn 1s ease-out forwards;
 } */
 
-/* Technical Skills grouped layout (theme-aligned) */
+/* Technical skills: 2-column grid + visible titles */
 .technicalskills {
     clear: both;
     margin: 50px auto;
@@ -895,48 +895,50 @@ p,
     max-width: 750px;
 }
 
-.skills-grid {
+/* two columns on desktop, one column on mobile */
+.technicalskills .skills-grid {
     margin-top: 18px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 22px;
 }
 
-.skill-group {
+@media (min-width: 900px) {
+    .technicalskills .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* card look */
+.technicalskills .skill-group {
     padding: 16px 18px;
     border-radius: 12px;
     background: rgba(17, 34, 64, 0.35);
-    /* matches your hover bg vibe */
-    border: 1px solid rgba(56, 199, 168, 0.15);
+    border: 1px solid rgba(56, 199, 168, 0.18);
 }
 
-.skill-title {
+/* THIS fixes your invisible titles */
+.technicalskills .skill-title {
     margin: 0 0 12px 0;
-    font-size: 1.2em;
-    /* smaller than h4 */
-    color: #ccd6f6;
+    font-size: 1.1em;
     font-weight: 700;
+    color: #ccd6f6 !important;
+    /* force visible */
     letter-spacing: 0.8px;
 }
 
-.skills-list {
+/* badges layout */
+.technicalskills .skills-list {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-/* Make broker-tag slightly nicer for this grid (optional) */
+/* reuse your tag style, slightly tuned for this section */
 .technicalskills .broker-tag {
     background: #112240;
-    border: 1px solid rgba(56, 199, 168, 0.7);
+    border: 1px solid rgba(56, 199, 168, 0.75);
     color: #8892b0;
     padding: 6px 12px;
     border-radius: 8px;
-}
-
-/* 2 columns on desktop */
-@media (min-width: 950px) {
-    .skills-grid {
-        grid-template-columns: 1fr 1fr;
-    }
 }
