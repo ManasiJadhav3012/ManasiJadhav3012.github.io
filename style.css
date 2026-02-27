@@ -472,6 +472,130 @@ i {
     background-color: #112240;
 }
 
+/* TECHNICAL SKILLS layout */
+.technical-skills-section {
+    padding-bottom: 10px;
+    padding-left: 5pt;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+.skills-groups {
+    padding-left: 5pt;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+/* Each category block */
+.skill-group {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 14px 12px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.skill-group-title {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Badges row */
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Base pill */
+.skill-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 10pt;
+    font-weight: 600;
+    line-height: 1;
+    border: 1px solid transparent;
+    user-select: none;
+}
+
+/* Color variants (match your current vibe) */
+.pill-blue {
+    background: #E8F0FE;
+    color: #1A73E8;
+    border-color: #D2E3FC;
+}
+
+.pill-red {
+    background: #FCE8E6;
+    color: #D93025;
+    border-color: #FAD2CF;
+}
+
+.pill-green {
+    background: #E6F4EA;
+    color: #188038;
+    border-color: #CEEDD6;
+}
+
+.pill-orange {
+    background: #FFF4E5;
+    color: #F57C00;
+    border-color: #FFE0B2;
+}
+
+.pill-purple {
+    background: #EAE6FF;
+    color: #5F2EEA;
+    border-color: #D8D0FF;
+}
+
+.pill-pink {
+    background: #FFE6F0;
+    color: #C2185B;
+    border-color: #FFC7DC;
+}
+
+.pill-teal {
+    background: #E0F7FA;
+    color: #00796B;
+    border-color: #B2EBF2;
+}
+
+.pill-amber {
+    background: #FFF3E0;
+    color: #FB8C00;
+    border-color: #FFE0B2;
+}
+
+.pill-sky {
+    background: #E1F5FE;
+    color: #0288D1;
+    border-color: #B3E5FC;
+}
+
+.pill-lavender {
+    background: #F3E5F5;
+    color: #6A1B9A;
+    border-color: #E1BEE7;
+}
+
+.pill-yellow {
+    background: #FFFDE7;
+    color: #F9A825;
+    border-color: #FFF59D;
+}
+
+/* Optional: 2 columns on larger screens */
+@media (min-width: 900px) {
+    .skills-groups {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .resume-section {
     position: relative;
     text-align: center;
