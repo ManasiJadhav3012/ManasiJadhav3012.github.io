@@ -1,195 +1,46 @@
 /* styles-mobile.css (max-width: 767px) */
 
-/* ========== Base reset for mobile ========== */
-* {
-    box-sizing: border-box;
-}
-
+/* 1) Allow normal page scrolling on mobile */
 html,
 body {
-    height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     margin: 0;
-    overflow: hidden;
-    /* keep your scroll behavior inside .middle */
 }
 
-body {
-    font-family: "Lato", sans-serif;
-    background-color: #020c1b;
-    min-height: 100vh;
-    letter-spacing: normal;
-}
-
-/* ========== Typography ========== */
-h1 {
-    font-size: 2.2rem;
-    color: #fff;
-    line-height: 1.15;
-}
-
-h2 {
-    font-size: 1.6rem;
-}
-
-h3 {
-    font-size: 1.35rem;
-    color: #90BAD4;
-}
-
-h4 {
-    font-size: 1.2rem;
-    color: #ccd6f6;
-}
-
-p {
-    font-size: 0.98rem;
-    line-height: 1.65;
-    color: #8892b0;
-    margin: 14px 0;
-}
-
-/* ========== Hide side columns on mobile ========== */
-.left,
-.right {
-    display: none !important;
-    width: 0 !important;
-}
-
-/* ========== Main layout ========== */
-.row {
-    width: 100%;
-}
-
-.column {
-    float: none;
-    width: 100%;
-}
-
+/* Remove the "scroll inside middle only" pattern on mobile */
 .middle {
     width: 100%;
     margin: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: 100vh;
-    padding: 0 12px 32px;
+    max-height: none;
+    overflow: visible;
 }
 
-.middle::-webkit-scrollbar {
-    width: 0.45rem;
+/* 2) Hide left/right fixed columns completely */
+.left,
+.right {
+    display: none !important;
 }
 
-.middle::-webkit-scrollbar-thumb {
-    background-color: rgba(136, 146, 176, 0.25);
-    border-radius: 8px;
-}
-
-.middle::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-/* ========== Desktop menu hidden on mobile ========== */
+/* 3) Hide desktop top menu links on mobile (the ones showing like Resume, Awards, etc.) */
 .home {
     display: none !important;
 }
 
-/* ========== Slide-in Mobile Menu (matches your JS) ========== */
+/* 4) Show mobile hamburger menu */
+.mobile-menu {
+    display: flex !important;
+}
+
+/* Make overlay work properly */
 .overlay-menu {
-    display: block;
     position: fixed;
     inset: 0;
-    z-index: 998;
-    background: rgba(0, 0, 0, 0.55);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 1;
 }
 
-.mobile-menu {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 78vw;
-    max-width: 340px;
-    z-index: 999;
-    background: #112240;
-    padding: 72px 12px 18px;
-    gap: 6px;
-    flex-direction: column;
-    transform: translateX(-105%);
-    transition: transform 0.25s ease;
-    box-shadow: 0 0 2rem rgba(136, 146, 176, 0.35);
-}
-
-.mobile-menu a {
-    width: 100%;
-    padding: 12px 10px;
-    border-radius: 10px;
-    color: #ccd6f6;
-    text-decoration: none;
-    text-transform: none;
-    font-size: 0.95rem;
-}
-
-.mobile-menu a:hover {
-    background: rgba(56, 199, 168, 0.12);
-    border-left: 3px solid #38C7A8;
-}
-
-/* trigger button */
-.mobile-menu__trigger {
-    position: absolute;
-    top: 14px;
-    right: -58px;
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    background: #090d12;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.mobile-menu__trigger span {
-    display: block;
-    width: 55%;
-    height: 2px;
-    background: #fff;
-    position: relative;
-}
-
-.mobile-menu__trigger span::before,
-.mobile-menu__trigger span::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    right: 0;
-    background: #fff;
-    transition: all 0.25s ease;
-}
-
-.mobile-menu__trigger span::before {
-    top: -7px;
-}
-
-.mobile-menu__trigger span::after {
-    top: 7px;
-}
-
-/* Open state */
-.mobile-menu_open {
-    transform: translateX(0%);
-}
-
-.mobile-menu_open~.overlay-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ========== Sections spacing ========== */
+/* 5) Typography + spacing adjustments */
 .grid-container,
 .about-container,
 .education,
@@ -197,35 +48,39 @@ p {
 .projects,
 .technicalskills,
 .resume-section {
-    margin: 16px 0;
+    margin: 12px;
     padding: 18px;
-    border-radius: 14px;
+    border-radius: 12px;
 }
 
-/* give hero a bit more breathing room */
-.grid-container {
-    margin-top: 22px;
+/* Headline sizing so "Manasi Jadhav" doesn't overflow */
+h1 {
+    font-size: 2.2em;
+    line-height: 1.15;
 }
 
-/* ========== Buttons ========== */
-.transparent-button {
-    display: inline-block;
-    padding: 10px 14px;
-    font-size: 0.95rem;
-    border-radius: 8px;
+h4 {
+    font-size: 1.25em;
 }
 
-/* ========== Two-column classes collapse to 1 column ========== */
-.two-parts,
-.thirty-parts,
-.seventy-parts,
+p {
+    font-size: 0.98em;
+    line-height: 1.6;
+    text-align: left;
+    /* better readability on small screens */
+}
+
+/* 6) Fix About section layout: stack text then image */
 .sixty-parts,
-.forty-parts {
+.forty-parts,
+.seventy-parts,
+.thirty-parts,
+.two-parts {
     width: 100% !important;
     float: none !important;
 }
 
-/* ========== Image block responsive (About + Awards) ========== */
+/* Make image container responsive */
 .image-container {
     padding: 0;
     width: 100%;
@@ -234,87 +89,86 @@ p {
 }
 
 .additional-overlay {
-    width: min(78vw, 300px);
-    height: min(78vw, 300px);
-    border: 2px solid #38C7A8;
+    width: 240px;
+    height: 240px;
 }
 
-.additional-overlay img {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Make about / awards image appear below text with spacing */
-.about-container .forty-parts,
-.about-container .award-image {
-    margin-top: 14px;
-}
-
-/* ========== Timeline spacing ========== */
-.timeline-item {
-    margin: 18px 0;
-    padding-left: 28px;
-}
-
-.timeline-item::before {
-    left: -6px;
-    width: 10px;
-    height: 10px;
-}
-
-.timeline-title {
-    font-size: 1.05rem;
-    letter-spacing: 0.4px;
-}
-
-.timeline-date {
-    font-size: 0.95rem;
-}
-
-/* ========== Experience tabs ========== */
+/* 7) Experience tabs: stack buttons and prevent overflow */
 .tabs-controls {
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .tabs-control {
-    width: 100%;
-    border-radius: 10px;
-    border: 1px solid rgba(56, 199, 168, 0.2);
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    font-size: 0.95em;
 }
 
-.tabs-panel[aria-selected="true"] {
-    display: block;
+/* Make experience bullets readable */
+.experience .seventy-parts ul {
+    padding-left: 18px;
 }
 
-/* ========== Tags wrap properly ========== */
+.experience li {
+    float: none;
+    padding: 8px 0;
+}
+
+/* 8) Projects cards / timeline padding fix */
+.timeline {
+    max-width: 100%;
+}
+
+.timeline-item {
+    padding-left: 22px;
+}
+
+.timeline-item::before {
+    left: 0px;
+}
+
+/* 9) Skills tags wrap nicely */
 .tags {
     text-align: left;
 }
 
 .broker-tag {
-    padding: 6px 10px;
+    font-size: 0.8em;
+    padding: 4px 8px;
     margin: 6px 6px 0 0;
-    font-size: 0.85rem;
-    border-radius: 8px;
-    background: #112240;
-    border: 1px solid rgba(56, 199, 168, 0.65);
 }
 
-/* ========== Resume container spacing ========== */
+/* 10) Resume section container should not overflow */
 #resume-container {
-    margin: 10px 0;
-    padding: 14px;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* ========== Footer ========== */
-.footer-container {
-    margin: 18px auto;
-    padding: 16px;
-    text-align: center;
+/* 11) Awards section: stack (text then image) */
+.award-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.award-text,
+.award-image {
+    width: 100% !important;
+    float: none !important;
+}
+
+.award-image-container .additional-overlay {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+}
+
+/* 12) Prevent horizontal overflow from any accidental wide elements */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
 }
