@@ -231,3 +231,24 @@ p {
 #resume-container {
     display: none;
 }
+
+/* Mobile menu footer icons */
+
+.mobile-menu-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-footer a {
+    font-size: 22px;
+    color: #ccd6f6;
+    transition: 0.3s;
+}
+
+.mobile-menu-footer a:hover {
+    color: #38C7A8;
+    transform: scale(1.2);
+}
