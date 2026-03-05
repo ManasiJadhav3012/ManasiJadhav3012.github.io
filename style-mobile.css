@@ -29,8 +29,62 @@ body {
 }
 
 /* 4) Show mobile hamburger menu */
+/* Mobile slide-in menu */
+.hamburger {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 3000;
+    background: #112240;
+    border: 1px solid rgba(56, 199, 168, 0.6);
+    color: #ccd6f6;
+    font-size: 22px;
+    padding: 10px 12px;
+    border-radius: 10px;
+}
+
 .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 78%;
+    max-width: 320px;
+    height: 100vh;
+    background: #112240;
+    z-index: 2500;
+    transform: translateX(-110%);
+    transition: transform 0.25s ease;
     display: flex !important;
+    flex-direction: column;
+    padding: 80px 16px 20px;
+    gap: 8px;
+}
+
+.mobile-menu a {
+    color: #ccd6f6;
+    padding: 12px 10px;
+    border-radius: 10px;
+}
+
+.mobile-menu a:hover {
+    background: rgba(56, 199, 168, 0.12);
+}
+
+.mobile-menu_open {
+    transform: translateX(0);
+}
+
+/* Overlay behind drawer */
+.overlay-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2400;
+}
+
+.overlay-menu.show {
+    display: block;
 }
 
 /* Make overlay work properly */
@@ -173,7 +227,7 @@ p {
     box-sizing: border-box;
 }
 
-/* Mobile: hide the big embedded resume preview */
+/* Mobile: hide embedded resume preview (use only Download CV button) */
 #resume-container {
     display: none;
 }

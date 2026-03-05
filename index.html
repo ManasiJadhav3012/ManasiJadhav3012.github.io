@@ -22,7 +22,8 @@
 </head>
 
 <body>
-    <nav class="mobile-menu">
+    <button class="hamburger" aria-label="Open menu" aria-controls="mobile-menu">☰</button>
+    <nav class="mobile-menu" id="mobile-menu">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#education">Education</a>
@@ -31,7 +32,6 @@
         <a href="#technicalskills">Technical Skills</a>
         <a href="#awards">Awards and Recognition</a>
         <a href="#resume">Resume</a>
-        <div class="mobile-menu__trigger"><span></span></div>
     </nav>
     <div class="overlay-menu"></div>
 
@@ -1009,9 +1009,27 @@
             }
         }
 
-        const mobile_menu = document.querySelector(".mobile-menu"),
-            mobile_trigger = document.querySelector(".mobile-menu__trigger");
+        const mobile_menu = document.querySelector(".mobile-menu");
+        const overlay_menu = document.querySelector(".overlay-menu");
+        const hamburger = document.querySelector(".hamburger");
 
+        function openMenu() {
+            mobile_menu.classList.add("mobile-menu_open");
+            overlay_menu.classList.add("show");
+        }
+
+        function closeMenu() {
+            mobile_menu.classList.remove("mobile-menu_open");
+            overlay_menu.classList.remove("show");
+        }
+
+        hamburger.addEventListener("click", openMenu);
+        overlay_menu.addEventListener("click", closeMenu);
+
+        // close menu after clicking a link
+        mobile_menu.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", closeMenu);
+        });
         let initialPoint, finalPoint;
 
         document.addEventListener("touchstart", function (event) {
